@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit your wish{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>Edit your wish</h2>
+
+        {{ form_start(wishForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+        {{ form_widget(wishForm) }}
+
+        {% if wish.imageFilename %}
+            <div class="image-container-small">
+                <img src="{{ asset('uploads/images/wish/' ~ wish.imageFilename) }}" alt="picture" />
+            </div>
+
+            <div>
+                <label>
+                    <input type="checkbox" name="deleteImage" value="1" />
+                    Delete current image
+                </label>
+            </div>
+        {% endif %}
+
+        <button type="submit" class="button button_confirm">Save</button>
+        {{ form_end(wishForm) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,212 @@
+body {
+    background-color: #d0f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Candara, serif;
+}
+main {
+    flex: 1;
+    margin:16px;
+    padding: 0;
+}
+footer {
+    background-color: #fff;
+    height: 2em;
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-items{
+    display: flex;
+    gap: 24px;
+    margin-right: 64px;
+    font-size: 24px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #93d5d5;
+    padding: 0 16px ;
+}
+
+ul, li, a{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+.icon_title{
+    display: flex;
+    align-items : center;
+    gap: 24px;
+}
+
+.card{
+    width: 20vw;
+    background-color: white;
+    border-radius : 16px;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer{
+    text-align: center;
+}
+
+#wish_form{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#wish_form>div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+#wish_form_title input{
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#wish_form label{
+    width: 100%;
+}
+#wish_form input, textarea, #wish_form_category{
+    width: 100%;
+    min-height: 24px;
+}
+
+#wish_form_category {
+    min-height: 30px;
+}
+
+.card{
+    background-color: white;
+    border-radius: 16px;
+    width: 80%;
+    margin:40px auto;
+    padding: 16px 32px;
+}
+
+.card h1{
+    text-align: center;
+}
+
+.button_confirm{
+    background: darkslategray;
+    margin: 0 auto;
+}
+
+.alert{
+    background-color: #6bd5b3;
+    color: white;
+    font-size: 20px;
+    padding: 16px 32px;
+    border-radius: 8px;
+}
+
+.button{
+    border-radius: 8px;
+    border: none;
+    display: block;
+    padding: 8px 32px;
+    color: white;
+    font-size: 16px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.button_edit{
+    background: darkslategray;
+}
+
+.button_delete{
+    background: #8e1d1d;
+}
+
+.image-container{
+    width : 800px;
+    height: 400px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.image-container-small{
+    height: 200px;
+}
+
+.image-container img{
+    object-fit: cover;
+}
+
+.list-item{
+    background-color: rgba(47, 79, 79, 0.15);
+    border: 4px solid darkslategray;
+    padding: 16px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list_wishes{
+    margin-top: 40px;
+}
+
+.image-container-small img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.created-by{
+    font-size: 12px;
+    color: cornflowerblue;
+    margin-bottom: 40px;
+}
+
+.homepage-picture-container{
+    width: 800px;
+    height: 400px;
+    margin: 80px auto;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.homepage-picture-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+.card-img{
+    height:460px;
+    width: 460px;
+}

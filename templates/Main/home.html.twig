@@ -1,13 +1,26 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initialscale=
-1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bucket List</title>
-</head>
-<body>
-<h1>Bucket-list</h1>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+{#On utilise une méthode qui permet d'appeler le parent (ici la base)#}
+{% block title %} Bucket List {% endblock %}
+{% block body %}
+    <h1>My Bucket List: Because adulting Needs a Little Chaos</h1>
+    <div class="homepage-picture-container">
+        <img src="{{ asset('images/funeral.jpg') }}" alt="funeral" />
+    </div>
+    <div>
+        <p>Welcome to my carefully curated (okay, maybe slightly chaotic) list of things I want to do before I’m too old to remember what I wanted to do!
+            This bucket list is my excuse to say “Why not?” to skydiving, “Sure, I’ll try that weird food,” and “Let’s get lost in that random city” —
+            all while trying not to trip over my own feet.
+        </p>
+        <p>It’s basically a permission slip to be spontaneous, a roadmap to unforgettable stories,
+            and a gentle reminder that life’s too short to eat boring food or stay in one place for too long.
+            I’m aiming to check off adventures that might scare me a little, make me laugh a lot, and maybe embarrass me endlessly
+            (because what’s life without some good cringe-worthy moments?).
+        </p>
+        <p>
+            So, whether it’s chasing sunsets, jumping off cliffs, or accidentally becoming a meme, this list is my way of turning “someday”
+            into “heck yes, today!” Let’s face it — if I don’t do it now, my future self will probably just remind me that I’m still scared of spiders.
+            Time to live loud, laugh harder, and collect stories that will sound way cooler than they actually were!
+        </p>
+    </div>
+
+{% endblock %}

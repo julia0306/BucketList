@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ wish.title }}{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h1>{{ wish.title }}</h1>
+        {% if wish.imageFilename %}
+        <div class="image-container">
+            <img src="{{ asset('uploads/images/wish/' ~ wish.imageFilename) }}" alt="picture" />
+        </div>
+        {% endif %}
+        <p>{{ wish.description }}</p>
+        <p> Wish category : {{ wish.category ? wish.category.name : "No category" }}</p>
+        <p class="created-by">Created by {{ wish.author }} on {{ wish.dateCreated|date('Y-m-d') }}</p>
+        <div class ="buttons">
+            <a href="{{ path('wishes_delete', {
+                'id' : wish.id,
+                'token': csrf_token('delete' ~ wish.id)}) }}"
+               class="button button_delete">Delete </a>
+            <a href="{{ path('wishes_edit', {'id' : wish.id}) }}" class=" button button_edit">Modify</a>
+        </div>
+
+    </div>
+{% endblock %}

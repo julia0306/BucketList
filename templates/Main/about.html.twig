@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>À propos de l'équipe</h1>
+
+<ul>
+    <div class=" card-container">
+        {% for member in team %}
+            <div class="card">
+                <img src="{{ member.picture }}" class="card-img"
+                     alt="Photo de {{ member.firstname }} {{ member.lastname }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ member.firstname }} {{ member.lastname }}
+                        {% if member.firstname == 'Fabien' %}
+                            ❤
+                        {% endif %}
+                    </h5>
+                    <p>Créateur de : {{ member.creatorOf }}</p>
+                    <p>Description : {{ member.description }}</p>
+                    {# Format the dateOfBirth from string to date #}
+                    <p>Date de naissance : {{ member.dateOfBirth|date('d-m-Y') }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+
+    {% block title %}
+        About us
+    {% endblock %}
+
