@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\User;
 use App\Entity\Wish;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -23,12 +24,6 @@ class WishForm extends AbstractType
             ->add('description', options:[
                 'label'=> 'Please describe it!',
                 'required' => false,])
-            ->add('author', options:[
-                'label'=> 'Author',
-            ])
-            ->add('author', options:[
-                'label'=> 'Your username'
-            ])
             ->add('imageFilename', FileType::class, [
                 'label' => 'Image (JPG / PNG file)',
                 'mapped' => false,

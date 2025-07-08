@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,10 @@ class MainController extends AbstractController
     #[Route('/', name: 'main')]
     public function home(): Response
     {
-
-        return $this->render('main/home.html.twig');
+        $user = $this->getUser();
+        return $this->render('main/home.html.twig', [
+            'user' => $user,
+        ]);
     }
 
     #[Route('/about-us', name: 'aboutUs')]

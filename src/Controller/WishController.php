@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\WishRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/wishes', name: 'wishes_')]
@@ -34,12 +35,16 @@ final class WishController extends AbstractController
         Request $request,
         EntityManagerInterface $em,
         SluggerInterface $slugger,
+        UserInterface $user,
         #[Autowire('%kernel.project_dir%/public/uploads/images/wish')] string $imagesDirectory
     ): Response
     {
+        $user = $this->getUser();
         $wish = new Wish();
+        $wish->setUser($user);
         $wishForm = $this->createForm(WishForm::class, $wish);
         $wishForm->handleRequest($request);
+
 
         if ($wishForm->isSubmitted() && $wishForm->isValid()) {
 
@@ -86,11 +91,13 @@ final class WishController extends AbstractController
     #[Route('/{id}', name: 'detail', methods: ['GET'])]
     public function show(Wish $wish, WishRepository $wishRepository): Response
     {
+
+        $comments = $wish->getComments();
         $wish = $wishRepository->find($wish);
         if(!$wish){
             throw $this->createNotFoundException();
         }
-        return $this->render('wishes/detail.html.twig', ['wish' => $wish]);
+        return $this->render('wishes/detail.html.twig', ['wish' => $wish, 'comments' => $comments]);
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
@@ -101,6 +108,12 @@ final class WishController extends AbstractController
         SluggerInterface $slugger,
         #[Autowire('%kernel.project_dir%/public/uploads/images/wish')] string $imagesDirectory): Response
     {
+        $user = $this->getUser();
+
+        if ($wish->getUser() !== $user) {
+            throw $this->createAccessDeniedException('You do not have permission to edit this wish.');
+        }
+
         $wishForm = $this->createForm(WishForm::class, $wish);
         $wishForm->handleRequest($request);
 

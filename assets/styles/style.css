@@ -210,3 +210,19 @@ footer{
     height:460px;
     width: 460px;
 }
+
+
+.comments{
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgba(88, 101, 101, 0.21);
+    padding: 32px;
+    margin: 32px auto;
+}
+
+
+.comment-commands{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

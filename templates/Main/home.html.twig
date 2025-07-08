@@ -6,6 +6,11 @@
     <div class="homepage-picture-container">
         <img src="{{ asset('images/funeral.jpg') }}" alt="funeral" />
     </div>
+    {% if app.user %}
+    <h2>Hello {{ user.username }} and welcome to my bucket list - a journey through all the things I've always dreamed of doing. </h2>
+    {% else %}
+    <h2>Hello and welcome to my bucket list - a journey through all the things I've always dreamed of doing.</h2>
+    {% endif %}
     <div>
         <p>Welcome to my carefully curated (okay, maybe slightly chaotic) list of things I want to do before I’m too old to remember what I wanted to do!
             This bucket list is my excuse to say “Why not?” to skydiving, “Sure, I’ll try that weird food,” and “Let’s get lost in that random city” —

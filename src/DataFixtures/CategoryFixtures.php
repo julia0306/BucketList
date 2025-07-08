@@ -13,28 +13,32 @@ class CategoryFixtures extends Fixture
          $travelCategory = new Category();
          $travelCategory->setName('Travel & Adventure');
          $manager->persist($travelCategory);
-         $this->addReference('travel-category', $travelCategory);
+         $this->addReference('category1', $travelCategory);
 
         $sportCategory = new Category();
         $sportCategory->setName('Sport');
         $manager->persist($sportCategory);
-        $this->addReference('sport-category', $sportCategory);
+        $this->addReference('category2', $sportCategory);
 
         $entertainmentCategory = new Category();
         $entertainmentCategory->setName('Entertainment');
         $manager->persist($entertainmentCategory);
-        $this->addReference('entertainment-category', $entertainmentCategory);
+        $this->addReference('category3', $entertainmentCategory);
 
         $humanRelationsCategory = new Category();
         $humanRelationsCategory->setName('Human Relations');
         $manager->persist($humanRelationsCategory);
-        $this->addReference('human-relations-category', $humanRelationsCategory);
+        $this->addReference('category4', $humanRelationsCategory);
 
         $othersCategory = new Category();
         $othersCategory->setName('Others');
         $manager->persist($othersCategory);
-        $this->addReference('others-category', $othersCategory);
+        $this->addReference('category5', $othersCategory);
+
+
 
         $manager->flush();
+
+
     }
 }

@@ -1,17 +1,31 @@
 <nav>
-        <ul class="navbar-items">
-            <li class="nav-item">
-                <a class="nav-link" href={{ path('main') }}>Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href={{ path('wishes_list') }}>All wishes</a>
-            </li>
+    <ul class="navbar-items">
+        <li class="nav-item">
+            <a class="nav-link" href={{ path('main') }}>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={{ path('wishes_list') }}>All wishes</a>
+        </li>
+        {% if app.user %}
             <li class="nav-item">
                 <a class="nav-link" href={{ path('wishes_create') }}>Add yours!</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href={{ path('aboutUs') }}>About us</a>
-            </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link" href={{ path('aboutUs') }}>About us</a>
+        </li>
 
-        </ul>
+        {% if app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href={{ path("app_logout")}}>Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href={{ path('app_login')}}>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{ path('app_register') }}>Register</a>
+            </li>
+        {% endif %}
+    </ul>
 </nav>
